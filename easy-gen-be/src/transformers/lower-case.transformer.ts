@@ -1,6 +1,6 @@
-import { MaybeType } from '../types/common/maybe-type';
 import { TransformFnParams } from '@nestjs/class-transformer';
+import { GenericOrUndefined } from '../types/common/GenericOrUndefined';
 
 export const lowerCaseTransformer = (
   params: TransformFnParams,
-): MaybeType<string> => params.value?.toLowerCase().trim();
+): GenericOrUndefined<string> => params.value?.toLowerCase().trim();
