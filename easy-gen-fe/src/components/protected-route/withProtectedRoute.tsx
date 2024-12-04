@@ -12,7 +12,6 @@ const withProtectedRoute = <P extends object>(
     const router = useRouter();
 
     useEffect(() => {
-      debugger;
       if (!authContext?.isLoggedIn) {
         router.push("/auth/login");
       }
