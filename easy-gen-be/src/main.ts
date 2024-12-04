@@ -19,7 +19,12 @@ async function bootstrap() {
       // forbidUnknownValues: true,
     }),
   );
-  await app.listen(3000);
+  app.enableCors({
+    origin: ['http://localhost:3000', 'http://localhost:3001'],
+    methods: ['GET', 'POST'],
+    credentials: true,
+  });
+  await app.listen(8000);
 }
 
 bootstrap();
