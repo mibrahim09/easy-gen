@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs';
+import { compare, genSalt, hash } from 'bcrypt';
 
 export class Utils {
   static async isHashedStringMatch(
@@ -6,14 +6,14 @@ export class Utils {
     hashedStr: string,
   ): Promise<boolean> {
     try {
-      return await bcrypt.compare(regularStr, hashedStr);
+      return await compare(regularStr, hashedStr);
     } catch {
       return false;
     }
   }
 
   static async hashString(regularStr: string): Promise<string> {
-    const salt = await bcrypt.genSalt();
-    return await bcrypt.hash(regularStr, salt);
+    const salt = await genSalt();
+    return await hash(regularStr, salt);
   }
 }

@@ -1,0 +1,3 @@
+import { DISPLAY_LIVE_EVENTS, HOME_PAGE_ACTIONS } from './permissions';
+
+export const USER_POLICIES = [HOME_PAGE_ACTIONS, DISPLAY_LIVE_EVENTS];

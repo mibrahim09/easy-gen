@@ -1,6 +1,6 @@
-import { BadRequestException } from '@nestjs/common';
+import { UnauthorizedException } from '@nestjs/common';
 
-export class InvalidUserOrPasswordError extends BadRequestException {
+export class InvalidUserOrPasswordError extends UnauthorizedException {
   constructor() {
     super('Invalid User Or Password');
   }
