@@ -19,6 +19,7 @@ export class AuthServiceImpl extends AuthService {
   }
 
   async login(command: LoginUserCommand) {
+    console.log(`login-start,email=${command.email}`);
     const user = await this.userService.findValidatedUser(
       command.email,
       command.password,
@@ -27,12 +28,15 @@ export class AuthServiceImpl extends AuthService {
       id: user.id,
       policies: USER_POLICIES,
     });
+    console.log(`login-sucess,email=${command.email}`);
+
     return {
       accessToken,
     };
   }
 
   async register(command: CreateUserCommand) {
+    console.log(`register-start,email=${command.email},name-${command.name}`);
     const result = await this.userService.createUser(command);
     return plainToClass(RegisterUserDto, result);
   }
